@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Strona główna</title>
+        <meta charset="UTF-8">
+        <base href="">
+    </head>
+    <body>
+        <h1>Witaj w formularzu zapisów</h1>
+        <p>Aby zapisać się zaznajom się z poniższymi informacjami i wypełnij formularz. <a href="index2.html">Zasady szczepień</a>.</p>
+        
+        <h2>Informacje</h2>
+        <p>Przed szczepieniem musisz być:</p>
+        <ul> <!--lista nieuporządkowana-->
+            <li>wyspany</li> <!--element-->
+            <li>zdrowy</li> <!--element-->
+            <li>trzeźwy</li> <!--element-->
+        </ul>
+
+        <p>
+            Po szczepieniu musisz:
+        </p>
+        <ol> <!--lista uporządkowana-->
+            <li>odczekać 15 minut</li> <!--element-->
+            <li>udać się do domu</li> <!--element-->
+            <li>wyspać się</li> <!--element-->
+        </ol>
+
+        <table border="1" width="100%"> <!--grubość obramowania-->
+            <caption>Lista dostępnych szczepionek</caption> <!--tytuł tabeli-->
+            <tr> <!-- wiersz-->
+                <th>
+                    nazwa producenta
+                </th>
+                <th>
+                    kraj pochodzenia
+                </th>
+                <th>
+                    cena
+                </th>
+
+            </tr>
+            <tr>
+                <td>
+                    Pfizer
+                </td>
+                <td rowspan="2"> <!--rozszerzam komórkę na 2 wiersze-->
+                    USA
+                </td>
+                <td>
+                    10
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Novavax
+                </td>
+                <!-- usuwam bo takie same jak w wierszu 1
+                <td>
+                    USA
+                </td-->
+                <td>
+                    7
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Astra Zeneca
+                </td>
+                <td>
+                    GB
+                </td>
+                <td>
+                    6
+                </td>
+            </tr>              
+        </table>
+
+        <h3>Formularz zapisów</h3>
+
+        <form method="post" action="saveform.jsp" name="forma">
+            <div>
+                <label for="imie-id">Imię</label>
+                <input name="imie" type="text" value="Michał" size="30" maxlength="60" id="imie-id" tabindex="1"> <!--pole do wprowadzania danych-->
+            </div>
+
+            <div>
+                <label for="nazwisko-id">Nazwisko</label>
+                <input name="nazwisko" type="text" placeholder="np. Szastok" size="30" maxlength="60" accesskey="n" id="nazwisko-id" tabindex="2"> <!--ułatwienie dostępu: ALT + "n" przenosi do pola-->
+            </div>
+
+            <div>
+                <label for="typ-id">Szczepionka:</label>
+                <select id="typ-id" name="typ">
+                    <option disabled selected value="">wybierz</option>
+                    <option>Pfizer</option>
+                    <option>Novavax</option>
+                    <option>Astra Zeneca</option>
+
+
+                </select><!--lista do wyboru-->
+            </div>
+
+        </form>
+
+
+    </body>
+
+
+</html>
