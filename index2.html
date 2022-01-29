@@ -13,12 +13,13 @@
 
 
         <p>tutaj jest paragraf</p>
+        <p>atrybut tabindex pozwala na poruszanie się po dokumencie przy użyciu klawisza TAB i definiować kolejność znaczników (domyślnie po kolei idą linki)</p>
 
         <p>obrazek o szerokości 100 pikseli z tytułem (po najechaniu):</p>
-        <img src="images/cactus.jpg" width=100 title="obrazek kaktusa">
+        <img src="images/cactus.jpg" width=100 title="obrazek kaktusa" tabindex="3">
 
         <p>obrazek o wysokości 50 pikseli - nie ma sensu podawać w % (choć teoretycznie się da):</p>
-        <img src="images/cactus.jpg" height=100>
+        <img src="images/cactus.jpg" height=100 tabindex="2">
 
         <p>obrazek się nie wyświetli, ale powinno coś innego:</p>
         <img src="images/cactu.jpg" height=100 alt="TU POWINIEN BYĆ OBRAZEK ALE JEST TEN TEKST">
@@ -27,7 +28,7 @@
         <img src="images/cactus.jpg" width="100%">
 
         <p>losowy obrazek:</p>
-        <img src="https://source.unsplash.com/random/1200x800">
+        <img src="https://source.unsplash.com/random/1200x800" tabindex="1">
 
        
     </body>
