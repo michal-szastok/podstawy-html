@@ -81,24 +81,34 @@
         <form method="post" action="saveform.jsp" name="forma">
             <div>
                 <label for="imie-id">Imię</label>
-                <input name="imie" type="text" value="Michał" size="30" maxlength="60" id="imie-id" tabindex="1"> <!--pole do wprowadzania danych-->
+                <input name="imie" type="text" value="Michał" size="30" maxlength="60" id="imie-id" tabindex="1">
+                <!--pole do wprowadzania danych, value = wartość domyślna (wprowadzona)-->
             </div>
 
             <div>
                 <label for="nazwisko-id">Nazwisko</label>
-                <input name="nazwisko" type="text" placeholder="np. Szastok" size="30" maxlength="60" accesskey="n" id="nazwisko-id" tabindex="2"> <!--ułatwienie dostępu: ALT + "n" przenosi do pola-->
-            </div>
+                <input name="nazwisko" type="text" placeholder="np. Szastok" size="30" maxlength="60" accesskey="n" id="nazwisko-id" tabindex="2">
+                <!--placeholder = wyszarzony przykład, ułatwienie dostępu: ALT + "n" przenosi do pola-->
+                        </div>
 
             <div>
                 <label for="typ-id">Szczepionka:</label>
-                <select id="typ-id" name="typ">
-                    <option disabled selected value="">wybierz</option>
+                <select id="typ-id" name="typ"> <!--lista do wyboru-->
+                    <option disabled selected multiple value="">wybierz</option>
+                    <!--disabled = uniemożliwia wybór opcji,
+                        selected = zaznaczenie domyślne,
+                        multiple = można zaznaczyć wiele opcji-->
                     <option>Pfizer</option>
                     <option>Novavax</option>
                     <option>Astra Zeneca</option>
+                </select>
+            </div>
 
-
-                </select><!--lista do wyboru-->
+            <div> <!--checkboxy-->
+                <label for="loteria-id">chcę uczstniczyć w loterii</label>
+                <input type="checkbox" value="l" name="zyczenia" id="loteria-id"> <!-- input nie trzeba domykać-->
+                <label for="certyfikat-id">chcę certyfikat</label>
+                <input type="checkbox" value="c" name="zyczenia" id="certyfikat-id">
             </div>
 
         </form>
