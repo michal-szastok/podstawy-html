@@ -92,6 +92,21 @@
                         </div>
 
             <div>
+                <fieldset>
+                    <legend>Wybierz swoją płeć</legend> <!--radio button - wybór który się wyklucza (mutex - mutual exclude)-->
+                        <label for="kobieta-id">kobieta</label>
+                        <input type="radio" value="l" name="plec" id="kobieta-id"> <!-- input nie trzeba domykać-->
+                        <label for="mezczyzna-id">mężczyzna</label>
+                        <input type="radio" value="c" name="plec" id="mezczyzna-id">
+                        <label for="kobieta-id2">kobieta2</label>
+                        <input type="radio" value="l" name="plec2" id="kobieta2-id"> <!-- name pozwala na tworzenie kilku grup wykluczeń wewnętrznych-->
+                        <label for="mezczyzna-id2">mężczyzna2</label>
+                        <input type="radio" value="c" name="plec2" id="mezczyzna2-id">
+                </fieldset>
+            </div>
+
+                        
+            <div>
                 <label for="typ-id">Szczepionka:</label>
                 <select id="typ-id" name="typ"> <!--lista do wyboru-->
                     <option disabled selected multiple value="">wybierz</option>
@@ -105,10 +120,13 @@
             </div>
 
             <div> <!--checkboxy-->
-                <label for="loteria-id">chcę uczstniczyć w loterii</label>
-                <input type="checkbox" value="l" name="zyczenia" id="loteria-id"> <!-- input nie trzeba domykać-->
-                <label for="certyfikat-id">chcę certyfikat</label>
-                <input type="checkbox" value="c" name="zyczenia" id="certyfikat-id">
+                <fieldset> <!--grupuje elementy formularza-->
+                    <legend>Tytuł checkboxów</legend>
+                        <label for="loteria-id">chcę uczestniczyć w loterii</label>
+                        <input type="checkbox" value="l" name="zyczenia" id="loteria-id"> <!-- input nie trzeba domykać-->
+                        <label for="certyfikat-id">chcę certyfikat</label>
+                        <input type="checkbox" value="c" name="zyczenia" id="certyfikat-id"> <!--pod "zmienną" zyczenia bedzię przechowywana wartość "c"-->
+                </fieldset>
             </div>
 
         </form>
