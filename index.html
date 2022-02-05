@@ -3,13 +3,150 @@
     <head>
         <title>Strona główna</title>
         <meta charset="UTF-8">
-        <base href="">
+        <!-- <base href=""> jeśli chcemy zmienić domyślą scieżkę do plików na serwerze-->
+        
+        <!--tutaj podaje się selektory - w całym dokumencie nadaj takim elementom (div) taki styl (czerwony tekst)-->
+        <style> 
+            * {
+                font-weight: 100;
+                /* box-sizing: border-box; */ /*<-----szerokość elementu jest liczona wraz z ramką dookoła
+                np. 200 + 2*30 = 260 (szerokość całkowita to szerokość + 2x marinesy*/
+                box-sizing: content-box; /*szerokość elementu jest liczona bez ramki dookoła (sama zawartość)*/
+            }
+            
+            /* selector specifity: */
+            /* th {
+                font-size: small;
+            }
+
+            table th {
+                font-size: small
+            }
+
+            th.klasa {
+                font-size: small
+            }
+
+            th#jegoid {
+                font-size: small
+            } */
+           
+            table {
+                border: 1px solid rgb(0,0,0);
+                border-collapse: collapse;
+                text-align: center;
+            }
+
+            th, td, caption { /*nakładam na th i td*/
+                padding: 10px;
+            }
+
+            th {
+                background-color: rgb(207, 207, 207);
+            }
+
+            td {
+                background-color: #eeeeee;
+            }
+            
+            caption {
+                font-weight: bold;
+                border: 1px solid;
+                border-bottom: none;
+                background-color: #ddbbbb;
+            }
+
+            body {
+            margin-left: 50px;
+            margin-right: 50px;
+            }
+
+            input#haslo-id, input[type="text"], select, textarea {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ffffff;
+                background-color: #eeeeee;
+                margin-top: 5px;
+                margin-bottom: 15px;
+                /*margin: 0 5px 0 15px - zapis 4 marginesów w jednym - jak zegar*/
+            }
+
+            fieldset {
+                border: 0;
+                margin: 0;
+                padding: 0;
+                margin-bottom: 10px;
+            }
+
+            legend {
+                padding: 0;
+                margin-bottom: 10px;
+            }
+
+            input[type="submit"] {
+                width: 50%;
+                margin-left: 25%;
+                margin-right: 25%;
+            }
+            
+            input[type="submit"]:hover {
+            background-color: greenyellow;
+            }
+
+            textarea:active { /* to trzeba poprawić */
+            background-color: greenyellow;
+            }
+
+            /* #nazwisko-id {
+                color: yellow;
+            } */
+
+            /* body [id="imie-id"] {
+                color: orchid;
+            } */
+            
+            /* div {
+                color: red;
+                background-color: green;
+            } */
+                        
+            /* selektor wszystkich labelów wewnątrz div-ów (na dowolnej głębokości) */
+            /* body div label { 
+                color: blue; 
+                background-color: yellow;
+            } */
+            
+            /* selektor labelów ale tylko bezpośrednio wewnątrz div-ów*/
+            /* body div > label { 
+                color: violet; 
+                background-color: purple;
+            } */
+
+            /* [class="naglowek1"] {
+                color: sandybrown;
+            } */
+
+            /* inny zapis tego co wyżej */
+            /* .naglowek2 {
+                color: slategrey;
+                background-image: url(images/cactus.jpg);
+                background-size: 50%;
+                background-repeat-x: no-repeat;
+                background-repeat-y: no-repeat;
+            } */
+
+            /* h1 {
+                background-color: red;
+            } */
+
+        </style>
     </head>
+    
     <body>
-        <h1>Witaj w formularzu zapisów</h1>
+        <h1 class="naglowek1">Witaj w formularzu zapisów</h1>
         <p>Aby zapisać się zaznajom się z poniższymi informacjami i wypełnij formularz. <a href="index2.html">Zasady szczepień</a>.</p>
         
-        <h2>Informacje</h2>
+        <h2 class="naglowek2">Informacje</h2>
         <p>Przed szczepieniem musisz być:</p>
         <ul> <!--lista nieuporządkowana-->
             <li>wyspany</li> <!--element-->
@@ -78,18 +215,24 @@
 
         <h3>Formularz zapisów</h3>
 
-        <form method="post" action="saveform.jsp" name="forma">
+        <form method="post" action="index2.html" name="forma"> <!--druga metoda to GET, ale wtedy dane są w pasku adresu-->
             <div>
-                <label for="imie-id">Imię</label>
+                <label for="imie-id">Imię:</label>
                 <input name="imie" type="text" value="Michał" size="30" maxlength="60" id="imie-id" tabindex="1">
                 <!--pole do wprowadzania danych, value = wartość domyślna (wprowadzona)-->
             </div>
 
             <div>
-                <label for="nazwisko-id">Nazwisko</label>
+                <label for="nazwisko-id">Nazwisko:</label>
                 <input name="nazwisko" type="text" placeholder="np. Szastok" size="30" maxlength="60" accesskey="n" id="nazwisko-id" tabindex="2">
                 <!--placeholder = wyszarzony przykład, ułatwienie dostępu: ALT + "n" przenosi do pola-->
-                        </div>
+            </div>
+
+            <div>
+                <label for="haslo-id">Hasło:</label>
+                <input name="haslo" type="password" id="haslo-id" value="">
+                <!--typ password to pole maskowane-->
+            </div>
 
             <div>
                 <fieldset>
@@ -104,7 +247,6 @@
                         <input type="radio" value="c" name="plec2" id="mezczyzna2-id">
                 </fieldset>
             </div>
-
                         
             <div>
                 <label for="typ-id">Szczepionka:</label>
@@ -121,12 +263,27 @@
 
             <div> <!--checkboxy-->
                 <fieldset> <!--grupuje elementy formularza-->
-                    <legend>Tytuł checkboxów</legend>
+                    <legend>Checkboxy z życzeniami:</legend>
                         <label for="loteria-id">chcę uczestniczyć w loterii</label>
                         <input type="checkbox" value="l" name="zyczenia" id="loteria-id"> <!-- input nie trzeba domykać-->
                         <label for="certyfikat-id">chcę certyfikat</label>
                         <input type="checkbox" value="c" name="zyczenia" id="certyfikat-id"> <!--pod "zmienną" zyczenia bedzię przechowywana wartość "c"-->
                 </fieldset>
+            </div>
+
+            <div>
+                <label for="komentarz-id">Dodatkowe uwagi1</label>
+                <textarea rows="10" cols="40" name="komentarz-id" placeholder="Twoje uwagi"></textarea> <!--pole tekstowe-->
+            </div>
+
+            <br>
+            <div>
+                <label for="komentarz-id">Dodatkowe uwagi2</label>
+                <textarea rows="10" cols="40" name="komentarz-id">Twoje uwagi</textarea> <!--pole tekstowe-->
+            </div>
+
+            <div>
+                <input type="submit" value="Zapisz"> <!-- przycisk -->
             </div>
 
         </form>
